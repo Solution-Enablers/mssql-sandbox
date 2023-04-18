@@ -75,9 +75,9 @@ DBCC CHECKCATALOG;
 ### Perform index maintenance
 ```sql
 USE TestDB;
-DBCC INDEXDEFRAG(0, your_table_name);
-ALTER INDEX ALL ON your_table_name REORGANIZE;
-ALTER INDEX ALL ON your_table_name REBUILD;
+DBCC INDEXDEFRAG(0, users);
+ALTER INDEX ALL ON users REORGANIZE;
+ALTER INDEX ALL ON users REBUILD;
 ```
 ### Update table statistics
 ```
