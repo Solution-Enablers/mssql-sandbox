@@ -80,8 +80,22 @@ ALTER INDEX ALL ON users REORGANIZE;
 ALTER INDEX ALL ON users REBUILD;
 ```
 ### Update table statistics
-```
+```sql
 USE TestDB;
 UPDATE STATISTICS users;
+```
+### Backup database
+```sql
+USE TestDB;
+BACKUP DATABASE TestDB
+TO DISK = 'C:\backup\TestDB.bak'
+WITH COMPRESSION, COPY_ONLY;
+```
+### Restore database from backup
+```sql
+USE master;
+RESTORE DATABASE TestDB
+FROM DISK = 'C:\backup\TestDB.bak'
+WITH REPLACE, RECOVERY;
 ```
 &copy; Solution Enablers 2023. All rights reserved.
