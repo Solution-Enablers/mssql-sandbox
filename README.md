@@ -36,6 +36,7 @@ CREATE TABLE users (
   designation VARCHAR(50),
   company_name VARCHAR(50)
 );
+GO
 ```
 ### Insert 20 sample users
 ```sql
@@ -60,10 +61,12 @@ INSERT INTO users (first_name, last_name, designation, company_name) VALUES
   ('Linda', 'Scott', 'Programmer', 'Tech Solutions'),
   ('Tom', 'Clark', 'Analyst', '123 Industries'),
   ('Nancy', 'Turner', 'Consultant', 'Enterprise Ventures');
+GO
 ```
 ### Select all data from the users table
 ```sql
 SELECT * FROM users;
+GO
 ```
 ### Run database integrity checks
 ```sql
