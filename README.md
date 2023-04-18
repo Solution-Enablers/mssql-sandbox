@@ -1,7 +1,7 @@
 # Microsoft SQL Server Sandbox
 Sandbox setup as per the requirements by Clover Infotech team
 
-### Install MS SQL Server (using Docker)
+### Install the MSSQL server (using Docker)
 ```sh
 sudo docker run \
   -e "ACCEPT_EULA=Y" \
@@ -12,11 +12,11 @@ sudo docker run \
   --detach \
   mcr.microsoft.com/mssql/server:2022-latest
 ```
-### Monitor MS SQL Server running status
+### Monitor the MSSQL server running status
 ```sh
 sudo docker ps -a
 ```
-### Start SQL CMD Shell
+### Start the sqlcmd shell
 ```sh
 sudo docker exec -it sql1 "bash"
 ```
@@ -64,5 +64,24 @@ INSERT INTO users (first_name, last_name, designation, company_name) VALUES
 ### Select all data from the users table
 ```sql
 SELECT * FROM users;
+```
+### Run database integrity checks
+```sql
+USE TestDB;
+DBCC CHECKDB;
+DBCC CHECKALLOC;
+DBCC CHECKCATALOG;
+```
+### Perform index maintenance
+```sql
+USE TestDB;
+DBCC INDEXDEFRAG(0, your_table_name);
+ALTER INDEX ALL ON your_table_name REORGANIZE;
+ALTER INDEX ALL ON your_table_name REBUILD;
+```
+### Update table statistics
+```
+USE TestDB;
+UPDATE STATISTICS users;
 ```
 &copy; Solution Enablers 2023. All rights reserved.
